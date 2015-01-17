@@ -1,0 +1,28 @@
+# Architektura
+
+> Projekt może psuć się *"od dołu"* - przez spadek jakości kodu rozumianego jako
+> pojedyńcze linijki oraz ich grupy - oraz *"od góry"* - poprzez błędy w 
+> architekturze rozwiązania i strategicznych decyzjach.
+> 
+> W tej sekcji zajmiemy się problemem zachowania jakości w **dużej** skali.
+
+## Problem
+
+Nie ma możliwości podejmowania wylącznie dobrych dezycji dotyczących architektury
+systemu. Dlatego też konieczne jest zastanowienie sie już na wstepie jak 
+zminimalizowac koszty pomylek.
+
+Co poteguje koszt bledów architektury:
+
+* Brak możliwości wycofania sie z wybranych technologii. Nieutrzymywanie ciąglych
+  aktualizacji bibliotek zależnych.
+* Przywiązanie do zamknieto zródlowych technologii. Utrudniona migracja.
+* 
+
+## Cel
+
+### Krótkofalowy
+
+### Długofalowy
+
+## Droga

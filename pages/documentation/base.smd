@@ -1,0 +1,82 @@
+# Dokumentacja
+
+## Problem
+
+Dokumentacja w formie plików `docx` i `xlsx` 
+(binarnych) ma zaskakująco negatywne konsekwencje. Jej użycie wiąże 
+sie z zablokowaniem możliwości automatycznego weryfikowania i 
+wsparcia analityków.
+
+### Problemy wynikające z wykorzystania takiej dokumentacji:
+
+* **Brak drobnoziarnistego śledzenia wersji** (np.: zmiana "i" na "lub" 
+z określeniem autora i daty).
+* **Brak zaawansowanego wyszukiwania** (np.: zdań zawierających dwa 
+wyrazy w dowolnej kolejności we wszystkich plikach projektu).
+* **Konieczność pilnowania stylu dokumentu** względem przyjętego 
+szablonu (możliwość "popsucia" stylu tabeli, niepoprawnego  
+wykorzystania nagłówków czy ręcznego dodania niestandardowego 
+stylu, np.: koloru tla.
+
+### Zablokowane możliwości usprawnienia pracy:
+
+* **Walidacja poprawności treści.**
+    * Blokowanie wyrażeń, zakazanych sformułowań, nazw itp.
+    * Zgłaszanie plików zawierające wyrażenia zbliżone do wyrażenia zmodyfikowanego.
+* **Inteligentne referencje miedzy plikami.**
+    * Walidacja czy dokument zawiera rozdział dla każdego z wierszy tabeli, elementów listy.
+    * Dokumenty złożone w wielu plików cząstkowych.
+* **Automatyczne reguly jakości dokumentacji.**
+    * Zgłaszanie dokumentów przekraczających mierniki jakości.
+    * Heurystyczne wykrywanie fragmentów do weryfikacji.
+
+## Cel 
+
+### Krótkofalowy
+
+Udostępnienie narzędzi zaawansowanego wyszukiwania i generowania ostrzeżeń
+na bazie ręcznie dostarczonej dokumentacji.
+
+W tym kroku najważniejsze jest:
+
+* Rozpoznanie możliwości dostarczenia nowego narzędzia w organizacji.
+* Poszerzenie wiedzy zespołu na temat możliwości - zebranie informacji
+  zwrotnej na temat potrzeb.
+* Zbadanie możliwości zbliżenia się do plików wyłacznie tekstowych.
+
+### Długofalowy
+
+Rezygnacja z tworzenia dokumentacji w formatach binarnych 
+(`docx`, `xlsx` itp.), 
+na rzecz formatów tekstowych (`md`, `json` itp.).
+
+Wdrożenie aplikacji do scentralizowanej obslugi dokumentacji.
+
+> Proponowany jest [GitLab](https://about.gitlab.com/).
+> Automatycznie utrzymuje pełna  historię zmian. Udostępnia zaawansowane 
+> narzędzia wspólpracy przy tworzeniu dokumentacji. Do przeanalizowania 
+> pozostaje jak zintegrowac interfejsy przyjazne użytkownikom 
+> nieznającym się na informatyce.
+
+## Droga
+
+* Pierwszym etapem jest wprowadzenie podstawowych narzędzi do obsługi
+  dokumentacji w formie w pełni tekstowej. Ma on na celu zaznajomienie
+  zespołu z nowymi możliwościami i oswojenie z konceptem równoległej 
+  pracy na innych formatach plików.
+* Kolejnym krokiem jest uruchomienie elastycznego narzędzia do zarządzania
+  dokumentacją. Idealne narzędzie wewnętrznie musi być oparte na 
+  repozytorium git, natomiast zewnętrznie udostępniać interfejs użytkownika
+  zbliżony do dotychczasowych aplikacji.
+  
+  Co ważne, narzędzie z definicji musi być uproszczone, ponieważ za błędne
+  uznajemy umożliwienie modyfikacji stylu przez użytkownika.
+  
+  W kroku tym najważniejsze jest konsekwentne rozwiązywanie problemów
+  powstałych w trakcie wprowadzania nowych danych do aplikacji. Na całym
+  etapie nowa aplikacja pełni rolę wyłącznie pomocniczą.
+* Ostatnim etapem jest pełne przejście na dokumentację w formie 
+  niebinarnej. Sygnałem gotowości jest przejście znaczącej części zespołu na
+  pracę w nowej aplikacji. Do tego momentu to na aplikacji spoczywa
+  nietrywialna odpowiedzialność utrzymywania synchronizacji dwóch form
+  dokumentacji.

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html ng-app="mtImpress">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Angular Impress.js</title>
+
+    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <base href="/">
+  </head>
+  
+  
+  <body ng-controller="AppCtrl">
+    <header>
+      <div class="jumbotron">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+              <h2>Długo- i krótkoterminowe kierunki rozwoju</h2>
+              <span>Definicja problemów, określenie celów, ogólny zarys dojścia</span>
+            </div>
+          </div>
+        </div>
+      </div>      
+    </header>
+    
+    <div class="container page-presentation">
+      <div class="row">
+        
+        <div class="col-md-4 col-md-offset-2" ng-click="setView('pages/documentation/base.smd')">
+          <div class="panel panel-default panel-primary">
+            <div class="panel-body">
+              <h3>Dokumentacja</h3>
+              <span class="comment">Tylko tekst</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4" ng-click="setView('pages/code_quality/base.smd')">
+          <div class="panel panel-default panel-primary">
+            <div class="panel-body">
+              <h3>Jakość kodu</h3>
+              <span class="comment">Automatyczna walidacja</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4 col-md-offset-2" ng-click="setView('pages/architecture/base.smd')">
+          <div class="panel panel-default panel-primary">
+            <div class="panel-body">
+              <h3>Architektura</h3>
+              <span class="comment">Open source</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4" ng-click="setView('pages/integration_tests/base.smd')">
+          <div class="panel panel-default panel-primary">
+            <div class="panel-body">
+              <h3>Środowisko testowe</h3>
+              <span class="comment">Docker</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4 col-md-offset-2" ng-click="setView('pages/maintenance/base.smd')">
+          <div class="panel panel-default panel-primary">
+            <div class="panel-body">
+              <h3>Utrzymanie</h3>
+              <span class="comment">Monitoring</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4" ng-click="setView('pages/future_development/base.smd')">
+          <div class="panel panel-default panel-primary">
+            <div class="panel-body">
+              <h3>Rozwój</h3>
+              <span class="comment">Utrzymanie jakości</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row project-description">
+        <div class="col-md-8 col-md-offset-2">
+          <div btf-markdown ng-include="view"></div>
+        </div>
+      </div>
+    </div>
+    
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+            <span class="pull-right text-muted">
+              @ 2015
+            </span>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.js"></script>
+    <script type="text/javascript" src="//rawgit.com/showdownjs/showdown/master/compressed/Showdown.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.8/angular.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.8/angular-sanitize.js"></script>
+    <script type="text/javascript" src="//rawgit.com/btford/angular-markdown-directive/master/markdown.js"></script>
+    <script type="text/javascript" src="/js/external/impress.js"></script>
+    
+    <script type="text/javascript" src="/js/main.js"></script>
+  </body>
+</html>

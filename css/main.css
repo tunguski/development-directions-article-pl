@@ -1,0 +1,50 @@
+
+/* @import url(https://fonts.googleapis.com/css?family=Lato:300italic,700italic,300,700);
+
+* {
+  font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+ */
+
+blockquote {
+  color: #999;
+  font-size: 13px;
+}
+
+.page-presentation .panel {
+  text-align: center;
+  cursor: pointer;
+}
+
+.page-presentation .panel:hover {
+  background-color: #f6f6f6;
+}
+
+.page-presentation .panel .panel-body {
+  padding-bottom: 35px;
+}
+
+.project-description h1 {
+  border-bottom: 1px solid #337ab7;
+}
+
+/* 
+.project-description div.col-md-8:after {
+  content: '----';
+  color: #ccc
+}
+ */
+.project-description h2 {
+  border-bottom: 1px solid #ddd;
+}
+
+.page-presentation .panel .comment {
+  font-weight: bold;
+  color: #bbb;
+}
+
+footer {
+  margin-top: 20px;
+  padding: 80px 0;
+  background-color: #eee;
+}
