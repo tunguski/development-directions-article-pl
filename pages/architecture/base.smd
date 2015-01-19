@@ -1,28 +1,61 @@
 # Architektura
 
-> Projekt może psuć się *"od dołu"* - przez spadek jakości kodu rozumianego jako
-> pojedyńcze linijki oraz ich grupy - oraz *"od góry"* - poprzez błędy w 
+> Projekt może psuć się *"od dołu"* - przez spadek jakości kodu rozumianego 
+> jako pojedyńcze linijki oraz ich grupy - oraz *"od góry"* - poprzez błędy w 
 > architekturze rozwiązania i strategicznych decyzjach.
 > 
 > W tej sekcji zajmiemy się problemem zachowania jakości w **dużej** skali.
 
 ## Problem
 
-Nie ma możliwości podejmowania wylącznie dobrych dezycji dotyczących architektury
-systemu. Dlatego też konieczne jest zastanowienie sie już na wstepie jak 
-zminimalizowac koszty pomylek.
+Nie ma możliwości podejmowania wylącznie dobrych dezycji dotyczących 
+architektury systemu. Dlatego też konieczne jest zastanowienie sie już na 
+wstepie jak zminimalizowac koszty pomylek.
 
 Co poteguje koszt bledów architektury:
 
-* Brak możliwości wycofania sie z wybranych technologii. Nieutrzymywanie ciąglych
-  aktualizacji bibliotek zależnych.
-* Przywiązanie do zamknieto zródlowych technologii. Utrudniona migracja.
-* 
+* Brak możliwości wycofania sie z wybranych technologii. 
+* Brak aktualizacji bibliotek zależnych.
+* Przywiązanie do zamknietozródlowych technologii.
 
 ## Cel
 
 ### Krótkofalowy
 
+Minimalizowanie kosztu zmian w architekturze rozwiązań.
+
+* Zastepowanie rozwiązań propertiary rozwiązaniami open source.
+* Pokrycie kodu testami zbliżone do 100% sprawia, że podmienienie biblioteki
+  zależnej jest zadaniem o średnim poziomie trudności.
+* Pelne testy integracyjne pozwalają na wyrugowanie technologii zamknietych
+  także ze środowiska aplikacji.
+
 ### Długofalowy
 
+Wylącznie open source zarówno w bibliotekach zależnych jak i narzedziach
+wykorzystywanych przy tworzeniu aplikacji.
+
 ## Droga
+
+1. Identyfikacji wszystkich bibliotek i narzedzi komercyjnych wykorzystywanych
+   w procesie developmentu. Co ważne, spisane powninny zostac wszystkie
+   elementy, także ze środowiska uruchomieniowego. W szzczególności:
+   
+    * system operacyjny
+    * aplikacje wymagane w środowisku (np.: baza danych Oracle)
+    * narzedzia developerów (np.: Enterprise Architect)
+    * biblioteki aplikacji (np.: sterownik JDBC Oracle)
+1. Testy integracyjne aplikacji powinny miec możliwośc wykonywania na trzech
+   bazach:
+   
+    * aktualna produkcyjna baza danych - dla utrzymania zgodności,
+    * PostgreSQL - jako docelowa baza po migracji,
+    * H2 - jako baza in-memory dla szybkich testów na maszynach developerskich
+1. Harmonogram usuwania kolejnych elementów komercyjnych. Sugerowane usuwanie
+   elementów najprostszych najpierw. Pozwoli to na nabranie doswiadczenia
+   przez administratorów i dopracowanie testów walidujących poprawnośc
+   wprowadzonych zmian.
+1. Usuwanie kolejnych elementów komercyjnych zgodnie z harmonogramem. Ogólną
+   regulą powinno byc usuwanie jednego elementu na raz. Dopiero po akceptacji
+   usuniecia poprzedniego elementu - najlepiej produkcyjnej instalacji danego
+   kroku - można rozpocząc usuwanie kolejnego elementu.

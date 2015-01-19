@@ -3,8 +3,13 @@
   .controller('AppCtrl', function ($scope, $http, $location) {
     $scope.setView = function (name) {
       $scope.view = name;
+      $location.path(name);
     };
     
-    $scope.view = 'pages/intro.smd';
+    if ($location.path()) {
+      $scope.view = $location.path();
+    } else {
+      $scope.view = 'pages/intro.smd';
+    }
   });
 })();

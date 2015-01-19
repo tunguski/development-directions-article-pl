@@ -1,7 +1,7 @@
 # Jakość kodu
 
-> Projekt może psuć się *"od dołu"* - przez spadek jakości kodu rozumianego jako
-> pojedyńcze linijki oraz ich grupy - oraz *"od góry"* - poprzez błędy w 
+> Projekt może psuć się *"od dołu"* - przez spadek jakości kodu rozumianego 
+> jako pojedyńcze linijki oraz ich grupy - oraz *"od góry"* - poprzez błędy w
 > architekturze rozwiązania i strategicznych decyzjach.
 > 
 > W tej sekcji zajmiemy się problemem zachowania jakości w **małej** skali.
@@ -9,11 +9,13 @@
 
 ## Problem
 
-Mając przed oczami pięć linijek kodu łatwo ulec złudzeniu, że jest to prosty fragment
-aplikacji, a więc nie wymaga wielkiej dbałości. Kiedy takich pięciolinijkowców w
-aplikacji są już dziesiątki tysięcy nikt nie pamięta, że wydawały się one proste.
+Mając przed oczami pięć linijek kodu łatwo ulec złudzeniu, że jest to prosty 
+fragment aplikacji, a więc nie wymaga wielkiej dbałości. Kiedy takich 
+pięciolinijkowców w aplikacji są już dziesiątki tysięcy nikt nie pamięta, że 
+wydawały się one proste.
 
-Programiści mają bardzo złudne oceny w stosunku do kodu nad którym aktualnie pracują.
+Programiści mają bardzo złudne oceny w stosunku do kodu nad którym aktualnie 
+pracują.
 
 ###Pomijane elementy małej skali:
 
@@ -25,15 +27,16 @@ Programiści mają bardzo złudne oceny w stosunku do kodu nad którym aktualnie
 
 * **Automatyczne mierniki jakości** - np.: CheckStyle, FindBugs, Sonar Qube
 * **Pełne i ciągłe weryfikowanie jakości** - Continuous Integration
-* **KISS** - dosłownie wszystko musi być proste, co wcale nie jest prostym celem
+* **KISS** - dosłownie wszystko musi być proste, co wcale nie jest prostym 
+  celem
 * **DRY** - reguła wymuszająca generalizację
 
 ## Cel
 
 ### Krótkofalowy
 
-Wprowadzenie automatycznej weryfikacji czy i z jakich technik utrzymywania jakości kodu
-korzysta dany projekt.
+Wprowadzenie automatycznej weryfikacji czy i z jakich technik utrzymywania 
+jakości kodu korzysta dany projekt.
 
 
 ### Długofalowy
@@ -49,11 +52,13 @@ korzysta dany projekt.
 1. Centralny serwer Git - automatyczne wykrywanie projektów.
 1. Wszystkie projekty pod kontrolą Maven'a (dla Javy).
 1. Centralny serwer Jenkins CI.
-1. Ujednolicenie konfiguracji projektów. Docelowo wszystkie wykryte repozytoria git
-   powinny byc budowane w identyczny sposób (wylącznie zmienna definiująca typ
-   budowania - dev/prod itp).
-1. Wspólny parent-pom dla wszystkich projektów. Wymuszona weryfikacja CheckStyle.
+1. Ujednolicenie konfiguracji projektów. Docelowo wszystkie wykryte repozytoria
+   git powinny byc budowane w identyczny sposób (wylącznie zmienna definiująca
+   typ budowania - dev/prod itp).
+1. Wspólny parent-pom dla wszystkich projektów. Wymuszona weryfikacja 
+   CheckStyle.
 1. Monitoring poziomu spelnienia warunków CS przez poszczególne projekty.
-1. Monitoring pelnego procesu budowania dla każdego z projektów wykrytych w repo.
+1. Monitoring pelnego procesu budowania dla każdego z projektów wykrytych w 
+   repo.
 
 

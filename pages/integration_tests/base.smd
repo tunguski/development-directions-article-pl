@@ -2,10 +2,63 @@
 
 ## Problem
 
+Testy integracyjne i UATowe wykonywane jako oddzielny etap rozwoju projektu
+niosą ze sobą negatywne konsekwencje. W trakcie developmentu nie jest wiadome
+które problemy są najbardziej ważne dla udanego wdrożenia systemów na
+produkcji. Programiści skupiają sie na problemach i zadaniach wewnątrz
+systemowych, ignorując problemy projektu (zbioru wspólpracujących systemów) 
+jako calości.
+
 ## Cel
+
+Skrócenie fazy testowania przy jednoczesnym podniesieniu jakości aplikacji
+oddawanych w trakcie jednego cyklu developmentu.
 
 ### Krótkofalowy
 
+* Wprowadzenie technologii Docker na potrzeby testowania osobnych systemów.
+* Konfiguracja środowisk testowych dla różnych baz danych dla tego samego
+systemu.
+* Testy integracyjne (pojedynczy system + baza) po każdym commicie.
+
 ### Długofalowy
 
+Pelne zwirtualizowane środowisko testowe oddające stan środowiska. 
+Wirtualizacja dotyczy wszystkich systemów wchodzących w sklad projektu,
+ale również systemów zewnetrznych dla projektu, które wchodzą w interakcje
+z systemami projektu.
+
+Wirtualizacja bazuje na kontenerach linuksowych. Tu sugerowanym rozwiązaniem
+jest Docker. Celem jest prosta metoda kopiowania, przenoszenia i uruchamiania
+poszczególnych maszyn.
+
+Wirtualne maszyny muszą możliwie dobrze odzwierciedlac architekture 
+produkcyjnego środowiska.
+
+Wirtualne maszyny bazodanowe są automatycznie wymienialne miedzy różnymi
+bazami danych dostepnych dla aplikacji - wymienione w sekcji 
+[architektura](#/pages/architecture/base.smd).
+
 ## Droga
+
+1. Stworzenie obrazów dockerowych dla każdej z maszyn produkcyjnych pracujących
+   na potrzeby systemów projektu. Kluczowe to maszyny aplikacyjne oraz bazy
+   danych. W zależności od projektu mogą również wystepowac inne maszyny,
+   np.: dla kolejek komunikatów itp.
+1. Stworzenie automatycznej konfiguracji uruchamiania obrazu dla systemu na
+   podstawie repozytorium git danego systemu. Oznacza to, że wymagana jest
+   możliwośc uruchomienia obrazu z dowolnym możliwym commitem/branchem z
+   repozytorium.
+1. Podlączenie infrastruktury obrazów do Jenkinsa. Nowa zmiana w repozytorium
+   powinna wywolywac reakcje Jenkinsa poprzez request Http wywolywany z hook'a
+   w gicie. Jenkins uruchamia kopie środowiska Dockerowego z podmienionym
+   kodem testowanego systemmu na wersje ze wskazanego commita.
+1. Konfiguracja pelnych środowisk testowych, opartych na branchach 
+   developerskich oraz produkcyjnych poszczególnych systemów. Testy 
+   integracyjne dla poszczególnych środowisk muszą byc wykonywane przynajmniej
+   raz dziennie. Niezależnie od tego przetestowany musi byc każdy commit, aby
+   możliwe bylo wskazanie dokladnie która zmiana wprowadzila bląd w aplikacji.
+   
+   Jeśli commit w jednym systemie wprowadzil bląd który nie zostal poprawiony,
+   testy integracyjne pozostalych systemów powinny brac to pod uwage. 
+   Wykonywanie testów do czasu poprawy bledu powinno ignorowac bledny commit.

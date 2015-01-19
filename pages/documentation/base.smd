@@ -22,9 +22,11 @@ stylu, np.: koloru tla.
 
 * **Walidacja poprawności treści.**
     * Blokowanie wyrażeń, zakazanych sformułowań, nazw itp.
-    * Zgłaszanie plików zawierające wyrażenia zbliżone do wyrażenia zmodyfikowanego.
+    * Zgłaszanie plików zawierające wyrażenia zbliżone do wyrażenia 
+      zmodyfikowanego.
 * **Inteligentne referencje miedzy plikami.**
-    * Walidacja czy dokument zawiera rozdział dla każdego z wierszy tabeli, elementów listy.
+    * Walidacja czy dokument zawiera rozdział dla każdego z wierszy tabeli, 
+      elementów listy.
     * Dokumenty złożone w wielu plików cząstkowych.
 * **Automatyczne reguly jakości dokumentacji.**
     * Zgłaszanie dokumentów przekraczających mierniki jakości.
