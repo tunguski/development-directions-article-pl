@@ -1,0 +1,12 @@
+# Skrócona wersja
+
+* Dokumentacja jako pliki tekstowe trzymane w repozytorium git.
+    * Sugestia wykorzystania gitlab
+* Kod aplikacji w gicie, dokumentacja w wiki też gitowym.
+    * Code review w gitlabie - PR mogą zostac wczytane dopiero po
+      spelnieniu automatycznych testów (CS, PMD, FB).
+* Haki gitowe uruchamiające testy, oraz weryfikujące mierniki jakości.
+* Docker dla automatycznego tworzenia środowisk testowych
+* Aplikacje muszą byc stateless, bez zalożeń co do ilości instancji.
+* Produkcja uruchamiana na Dockerze poprzez definiowanie docelowych
+  serwerów. (fig, fleet etc.).
