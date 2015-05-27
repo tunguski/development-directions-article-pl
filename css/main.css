@@ -56,3 +56,49 @@ footer {
   padding: 80px 0;
   background-color: #eee;
 }
+
+
+/* 
+ol {
+    margin-left: 0;
+    padding-right: 0;
+    list-style-type: none;
+}
+
+ol li {
+    counter-increment: step-counter;
+}
+
+ol li::before {
+    content: counter(step-counter);
+    margin-right: 5px;
+    font-size: 80%;
+    background-color: rgb(200,200,200);
+    color: white;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 3px;
+}
+ */
+/* LIST #2 */
+/* 
+ol { 
+   font-style:italic; 
+   font-family:Georgia, Times, serif; 
+   font-size:24px; 
+   color:#bfe1f1;  
+ }
+ ol li { 
+   padding:8px; 
+   font-style:normal; 
+   font-family:Arial; 
+   font-size:13px; 
+   color:#eee; 
+   border-left: 1px solid #999; 
+ }
+ ol li em { 
+   display:block; 
+ }
+
+
+ */

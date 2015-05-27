@@ -18,12 +18,12 @@
     
     $scope.setView = function (view) {
       $scope.view = view;
-      $location.path('pages/' + view.src + '.smd');
+      $location.path(view.src);
     };
     
     $scope.$on('$locationChangeStart', function () {
       console.log('Location changed!');
-      $scope.viewPath = $location.path();
+      $scope.viewPath = 'pages/' + $location.path() + '.smd';
     });
     
     $scope.setView({

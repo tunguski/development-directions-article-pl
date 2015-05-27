@@ -31,6 +31,9 @@ pracują.
   celem
 * **DRY** - reguła wymuszająca generalizację
 
+Pełny opis wymaganych reguł i sugestie co do sposobu ich implementowania w
+projekcie [został opisany tu](#/code_quality/rules)
+
 ## Cel
 
 ### Krótkofalowy
